@@ -9,6 +9,9 @@ import {
 } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import {HandMetal} from 'lucide-react'
+import Link from "next/link"
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,7 +37,29 @@ export default function RootLayout({
     <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
+          <header className="border-b">
+        <div className="container flex h-16 items-center justify-between py-4">
+          <div className="flex items-center gap-2">
+            <HandMetal className="h-6 w-6 text-teal-600" />
+            <span className="text-xl font-bold">InclusiveHire</span>
+          </div>
+          <nav className="hidden md:flex gap-6">
+            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
+              Home
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
+              Find Jobs
+            </Link>
+            <Link href="/sign-language" className="text-sm font-medium hover:underline underline-offset-4">
+              Sign Language
+            </Link>
+            <Link href="/un-goals" className="text-sm font-medium hover:underline underline-offset-4">
+              UN Goals
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
+              About Us
+            </Link>
+            <div className="flex justify-end items-center gap-2">
             <SignedOut>
               <SignInButton />
               <SignUpButton />
@@ -42,7 +67,14 @@ export default function RootLayout({
             <SignedIn>
               <UserButton />
             </SignedIn>
-          </header>
+            </div>
+          </nav>
+          
+        </div>
+      </header>
+          
+            
+        
           {children}
         </body>
       </html>
