@@ -7,41 +7,7 @@ import Link from "next/link"
 export default function SignLanguagePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="border-b">
-        <div className="container flex h-16 items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <HandMetal className="h-6 w-6 text-teal-600" />
-            <Link href="/" className="text-xl font-bold">
-              InclusiveHire
-            </Link>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Find Jobs
-            </Link>
-            <Link href="/sign-language" className="text-sm font-medium text-teal-600 underline underline-offset-4">
-              Sign Language
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              UN Goals
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              About Us
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/sign-in">
-              <Button variant="outline">Sign In</Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button>Join Now</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-teal-50 to-white">
           <div className="container px-4 md:px-6">
