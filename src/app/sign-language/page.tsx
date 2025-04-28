@@ -1,54 +1,25 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Video, Mic, Volume2, HandMetal } from "lucide-react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
+import Logo from "../../../public/gnec_logo.png"
+import Image from "next/image"
+
 
 export default function SignLanguagePage() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="border-b">
-        <div className="container flex h-16 items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <HandMetal className="h-6 w-6 text-teal-600" />
-            <Link href="/" className="text-xl font-bold">
-              InclusiveHire
-            </Link>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              Find Jobs
-            </Link>
-            <Link href="/sign-language" className="text-sm font-medium text-teal-600 underline underline-offset-4">
-              Sign Language
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              UN Goals
-            </Link>
-            <Link href="#" className="text-sm font-medium hover:underline underline-offset-4">
-              About Us
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/sign-in">
-              <Button variant="outline">Sign In</Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button>Join Now</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+    <div className="flex flex-col min-h-screen text-center items-center">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-teal-50 to-white">
+        <section className="w-full py-12 md:py-12 lg:py-32 px-12 md:px-24 sm:px-24 lg:px-48 bg-gradient-to-b from-teal-600 to-white -mt-15">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Sign Language Translation</h1>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Our AI-powered tool translates sign language in real-time, making communication seamless during
                   interviews
                 </p>
@@ -57,12 +28,12 @@ export default function SignLanguagePage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24">
+        <section className="w-full py-12 md:py-24 sm:py-12">
           <div className="container px-4 md:px-6">
             <Tabs defaultValue="translate" className="max-w-4xl mx-auto">
               <TabsList className="grid w-full max-w-md grid-cols-2 mx-auto">
-                <TabsTrigger value="translate">Sign to Text</TabsTrigger>
-                <TabsTrigger value="learn">Learn Sign Language</TabsTrigger>
+                <TabsTrigger value="translate" className="cursor-pointer">Sign to Text</TabsTrigger>
+                <TabsTrigger value="learn" className="cursor-pointer">Learn Sign Language</TabsTrigger>
               </TabsList>
               <TabsContent value="translate" className="mt-6">
                 <Card className="border-2 border-teal-100">
@@ -76,15 +47,15 @@ export default function SignLanguagePage() {
                     <div className="grid gap-6 lg:grid-cols-2">
                       <div className="space-y-4">
                         <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-                          <div className="text-center p-8">
+                          <div className="text-center p-8 md:p-16">
                             <Video className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                             <p className="text-gray-500">Camera feed would appear here</p>
                             <p className="text-xs text-gray-400 mt-2">Camera access required for live translation</p>
                           </div>
                         </div>
                         <div className="flex justify-center gap-4">
-                          <Button className="bg-teal-600 hover:bg-teal-700">Start Camera</Button>
-                          <Button variant="outline">Pause</Button>
+                          <Button className="bg-teal-600 hover:bg-teal-700 cursor-pointer">Start Camera</Button>
+                          <Button variant="outline" className="cursor-pointer">Pause</Button>
                         </div>
                       </div>
                       <div className="space-y-4">
@@ -350,8 +321,8 @@ export default function SignLanguagePage() {
                   language translation tools.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-white text-teal-600 hover:bg-teal-50">Try Translation Now</Button>
-                  <Button variant="outline" className="text-white border-white hover:bg-teal-700">
+                  <Button className="bg-white text-teal-600 hover:bg-teal-50 cursor-pointer" onClick={() => router.push("/sign-language")}>Try Translation Now</Button>
+                  <Button variant="outline" className="text-white border-white bg-teal-700 cursor-pointer">
                     Learn More
                   </Button>
                 </div>
@@ -399,7 +370,7 @@ export default function SignLanguagePage() {
         <div className="container flex flex-col gap-6 py-8 md:py-12 px-4 md:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="flex items-center gap-2">
-              <HandMetal className="h-6 w-6 text-teal-600" />
+              <Image src={Logo} alt="Logo" width={32} height={32} />
               <span className="text-xl font-bold">InclusiveHire</span>
             </div>
             <p className="text-sm text-gray-500 md:ml-auto">

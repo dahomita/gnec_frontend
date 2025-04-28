@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { HandMetal, Globe, Users, Briefcase, BarChart3, CheckCircle } from "lucide-react"
-import Link from "next/link"
+import { Globe, Users, Briefcase, BarChart3, CheckCircle } from "lucide-react"
+import Logo from "../../../public/gnec_logo.png"
 import Image from "next/image"
 
 export default function UNGoalsPage() {
@@ -403,7 +403,7 @@ export default function UNGoalsPage() {
         <div className="container flex flex-col gap-6 py-8 md:py-12 px-4 md:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="flex items-center gap-2">
-              <HandMetal className="h-6 w-6 text-teal-600" />
+              <Image src={Logo} alt="Logo" width={32} height={32} />
               <span className="text-xl font-bold">InclusiveHire</span>
             </div>
             <p className="text-sm text-gray-500 md:ml-auto">

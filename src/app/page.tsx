@@ -1,116 +1,26 @@
+"use client"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Search, Video, Briefcase, Users, Globe, Heart, HandMetal, Lightbulb, ChevronRight } from "lucide-react"
+import { Search, Video, Briefcase, Users, Globe, Heart, HandMetal, Lightbulb  } from "lucide-react"
+import HomePage from "@/app/home/page";
+import IntroPage from "./intro/page"
+import { useRouter } from "next/navigation"
+import Logo from "../../public/gnec_logo.png"
+import Image from "next/image"
+
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col min-h-screen">
-      
+    <div className="flex flex-col min-h-screen space-y-4">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-teal-50 to-white">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-teal-100 px-3 py-1 text-sm text-teal-800">
-                  Inclusive Opportunities
-                </div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Breaking Barriers in the Interview Process
-                </h1>
-                <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform translates sign language, connects minorities with inclusive employers, and promotes the
-                  UN Sustainable Development Goals.
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-teal-600 hover:bg-teal-700">
-                    Find Jobs
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline">Try Sign Language Translator</Button>
-                </div>
-              </div>
-              <div className="mx-auto lg:ml-auto">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Diverse group of people in an interview setting"
-                  width={600}
-                  height={400}
-                  className="rounded-lg object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <HomePage />
+        <IntroPage />
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Key Features</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Tools designed to create equal opportunities for everyone in the job market
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
-              <Card className="border-2 border-teal-100">
-                <CardHeader className="pb-2">
-                  <Video className="h-12 w-12 text-teal-600 mb-2" />
-                  <CardTitle>Sign Language Translation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    Real-time sign language translation during video interviews, making communication seamless for
-                    everyone.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="ghost" className="w-full">
-                    Learn More
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card className="border-2 border-teal-100">
-                <CardHeader className="pb-2">
-                  <Briefcase className="h-12 w-12 text-teal-600 mb-2" />
-                  <CardTitle>Inclusive Job Matching</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    Smart algorithms that match candidates with disability-friendly employers and accessible workplaces.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="ghost" className="w-full">
-                    Find Jobs
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card className="border-2 border-teal-100">
-                <CardHeader className="pb-2">
-                  <Globe className="h-12 w-12 text-teal-600 mb-2" />
-                  <CardTitle>UN Goals Integration</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    Supporting UN Sustainable Development Goals, particularly focused on reducing inequalities.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="ghost" className="w-full">
-                    Explore Goals
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-teal-50">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-teal-100 to-teal-800">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
               <div className="space-y-2">
@@ -211,8 +121,8 @@ export default function Home() {
                   Join thousands of job seekers who have found inclusive employers through our platform.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button className="bg-white text-teal-600 hover:bg-teal-50">Create Your Profile</Button>
-                  <Button variant="outline" className="text-white border-white hover:bg-teal-700">
+                  <Button className="bg-white text-teal-600 hover:bg-teal-50 cursor-pointer" onClick={() => router.push("https://ace-mammoth-27.accounts.dev/sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F")}>Create Your Profile</Button>
+                  <Button variant="outline" className="text-white border-white bg-teal-700 cursor-pointer">
                     Browse Jobs
                   </Button>
                 </div>
@@ -254,8 +164,8 @@ export default function Home() {
                   </p>
                 </div>
                 <TabsList className="grid w-full max-w-md grid-cols-2">
-                  <TabsTrigger value="job-seekers">For Job Seekers</TabsTrigger>
-                  <TabsTrigger value="employers">For Employers</TabsTrigger>
+                  <TabsTrigger value="job-seekers" className="cursor-pointer">For Job Seekers</TabsTrigger>
+                  <TabsTrigger value="employers" className="cursor-pointer">For Employers</TabsTrigger>
                 </TabsList>
               </div>
               <TabsContent value="job-seekers" className="space-y-4">
@@ -301,7 +211,7 @@ export default function Home() {
                   </Card>
                 </div>
                 <div className="flex justify-center mt-6">
-                  <Button className="bg-teal-600 hover:bg-teal-700">Sign Up as Job Seeker</Button>
+                  <Button className="bg-teal-600 hover:bg-teal-700 cursor-pointer" onClick={() => router.push("https://ace-mammoth-27.accounts.dev/sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F")}>Sign Up as Job Seeker</Button>
                 </div>
               </TabsContent>
               <TabsContent value="employers" className="space-y-4">
@@ -347,7 +257,7 @@ export default function Home() {
                   </Card>
                 </div>
                 <div className="flex justify-center mt-6">
-                  <Button className="bg-teal-600 hover:bg-teal-700">Register as Employer</Button>
+                  <Button className="bg-teal-600 hover:bg-teal-700 cursor-pointer" onClick={() => router.push("https://ace-mammoth-27.accounts.dev/sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F")}>Register as Employer</Button>
                 </div>
               </TabsContent>
             </Tabs>
@@ -475,7 +385,7 @@ export default function Home() {
         <div className="container flex flex-col gap-6 py-8 md:py-12 px-4 md:px-6">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
             <div className="flex items-center gap-2">
-              <HandMetal className="h-6 w-6 text-teal-600" />
+              <Image src={Logo} alt="Logo" width={32} height={32} />
               <span className="text-xl font-bold">InclusiveHire</span>
             </div>
             <p className="text-sm text-gray-500 md:ml-auto">
